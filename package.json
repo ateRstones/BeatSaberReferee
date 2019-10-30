@@ -1,0 +1,33 @@
+{
+  "name": "beatsaber-referee",
+  "version": "0.0.1",
+  "description": "A BeatSaber Discord Bot for handling player 1v1s with an integrated ranking system and additional functionality.",
+  "main": "./out/index.js",
+  "scripts": {
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "start": "tsc && node .",
+    "build": "tsc"
+  },
+  "keywords": [
+    "Discord",
+    "Bot",
+    "Beat",
+    "Saber",
+    "Battle",
+    "1v1"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^24.0.21",
+    "@types/node": "^12.12.3",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.4"
+  },
+  "dependencies": {
+    "config": "^3.2.4",
+    "discord.js": "^11.5.1"
+  }
+}
