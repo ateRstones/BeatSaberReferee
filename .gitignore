@@ -68,3 +68,6 @@ out/
 
 #coverage result directory
 coverage/
+
+#config directory
+config/
