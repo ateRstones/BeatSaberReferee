@@ -1,29 +1,27 @@
 import { Client } from 'discord.js'
-import { Logger } from 'ts-logger'
+import Logger from './utils/logging'
 import c from 'config'
 import sleep from './utils/sleep'
-import LogBotTagInformationFactory from './utils/LogBotTagInformationFactory'
 import settings from './settings/Settings'
 import ModuleManager from './bot-modules/ModuleManager'
 
 export const client = new Client()
 const moduleManager = ModuleManager.getInstance()
-const logFactory = new LogBotTagInformationFactory(client)
-const logger: Logger = new Logger("Beatsaber Referee Bot", { useColor: true, useGlobalLogInformationFactories: true })
-Logger.addGlobalLogInformationFactory(logFactory)
+const logger: Logger = Logger.getLogger("beatsaber")
+logger.setPrefix("Beatsaber Referee Bot")
 
 async function login() {
-    logger.logInfo('Trying to log in...')
+    logger.info('Trying to log in...')
     const token = c.get<string>('discord.token')
     await client.login(token)
-    logger.logSuccess(`Logged in!`)
+    logger.info(`Logged in!`)
 }
 
 async function reconnect() {
     try { await login() }
     catch(e) {
-        logger.logError(e)
-        logger.logInfo("Trying reconnection in 30 seconds")
+        logger.error("Error connecting", e)
+        logger.info("Trying reconnection in 30 seconds")
         await sleep(30000)
         reconnect()
     }
@@ -31,12 +29,13 @@ async function reconnect() {
 
 async function init() {
     try {
+        logger.setLogLevel(c.get<string>("loglevel"))
         await login()
         moduleManager.setupModules(settings.modules)
     }
-    catch(e) {logger.logError(e)}
+    catch(e) {logger.error("Error at init", e)}
 }
 
-client.on("error", e => logger.logError(e))
+client.on("error", e => logger.error("Client error", e))
 client.on("disconnect", _ => reconnect())
 init()

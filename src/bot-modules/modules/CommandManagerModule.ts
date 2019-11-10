@@ -1,6 +1,6 @@
 import Module from "./Module";
 import Command from "../../bot-commands/Command";
-import { Logger } from "ts-logger";
+import Logger from "../../utils/logging";
 import { client } from "../..";
 import { Message } from "discord.js";
 import settings from "../../settings/Settings";
@@ -9,7 +9,7 @@ import convertMsgToActivatedCommand from "../../utils/convert-msg-to-activated-c
 export default class CommandManagerModule extends Module {
 
     private static commands: { [name: string]: Command } = {}
-    private static logger: Logger = new Logger('Command Manager', { useGlobalLogInformationFactories: true })
+    private static logger: Logger = Logger.getLogger("beatsaber")
 
     public static getCommands(): { [name: string]: Command } {
         return this.commands
@@ -44,7 +44,7 @@ export default class CommandManagerModule extends Module {
         if (!command)
             return
         
-        CommandManagerModule.logger.logInfo(`Command '${command.name}' activated.`)
+        CommandManagerModule.logger.info(`Command '${command.name}' activated.`)
         command.execute(activatedCommand)
     }
 
@@ -54,7 +54,7 @@ export default class CommandManagerModule extends Module {
      */
     private register(command: Command): void {
         CommandManagerModule.commands[command.name] = command
-        CommandManagerModule.logger.logInfo(`Command '${command.name}' registered.`)
+        CommandManagerModule.logger.info(`Command '${command.name}' registered.`)
     }
 
 }

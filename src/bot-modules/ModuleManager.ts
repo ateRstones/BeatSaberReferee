@@ -1,9 +1,9 @@
-import { Logger } from "ts-logger"
+import Logger from "../utils/logging"
 import Module from "./modules/Module"
 
 export default class ModuleManager {
 
-    private static logger: Logger = new Logger('Module Manager', { useGlobalLogInformationFactories: true })
+    private static logger: Logger = Logger.getLogger("beatsaber")
     private static instance: ModuleManager
 
     public static getInstance(): ModuleManager {
@@ -20,7 +20,7 @@ export default class ModuleManager {
 
     public setupModules(modules: Module[]): void {
         modules.forEach(this.setupModule)
-        ModuleManager.logger.logInfo('All Modules initialized.')
+        ModuleManager.logger.info('All Modules initialized.')
     }
 
 }
