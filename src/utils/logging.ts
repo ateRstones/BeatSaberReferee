@@ -6,8 +6,6 @@ export enum LogLevel {
     ERROR
 }
 
-type LogLevelStrings = keyof typeof LogLevel
-
 export default class Logger {
 
     private static createdLoggers: Map<string, Logger> = new Map()
