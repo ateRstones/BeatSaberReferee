@@ -1,0 +1,30 @@
+{
+    "commands": {
+        "user": {
+            "accept": {
+                "de": "akzeptieren",
+                "en": "accept"
+            }
+        },
+        "admin": {
+
+        }
+    },
+    "messages": {
+        "user": {
+            "accept": {
+                "noinvite": {
+                    "de": "Du hast keinen Invite $(user) $(userid)",
+                    "en": "You don't have any invites"
+                },
+                "success": {
+                    "de": "Du hast ein Duel mit $(challenger).",
+                    "en": "You now have a duel with $(challenger)."
+                }
+            }
+        }
+    }
+}
+
+discord.sendMessage(Message.getMessage("messages.user.accept.noinvite", {"user": "Joll", "userId": "64453"}), dcUser)
+DiscordMessage.sendMessage(channel, "messages.user.accept.noinvite", {"user": "Joll", "userId": "64453"})
