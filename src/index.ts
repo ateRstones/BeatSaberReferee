@@ -4,11 +4,13 @@ import c from 'config'
 import sleep from './utils/sleep'
 import settings from './settings/Settings'
 import ModuleManager from './bot-modules/ModuleManager'
+import Database from "./models/database/Database"
 
 export const client = new Client()
 const moduleManager = ModuleManager.getInstance()
-const logger: Logger = Logger.getLogger("beatsaber")
+const logger = Logger.getLogger("beatsaber")
 logger.setPrefix("Beatsaber Referee Bot")
+const database = new Database()
 
 async function login() {
     logger.info('Trying to log in...')
@@ -29,6 +31,7 @@ async function reconnect() {
 
 async function init() {
     try {
+        await database.init()
         logger.setLogLevel(c.get<string>("loglevel"))
         await login()
         moduleManager.setupModules(settings.modules)

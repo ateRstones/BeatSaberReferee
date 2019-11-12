@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
-    "start": "tsc && node .",
+    "start": "ts-node src",
     "build": "tsc"
   },
   "keywords": [
@@ -29,6 +29,9 @@
   "dependencies": {
     "@types/config": "0.0.36",
     "config": "^3.2.4",
-    "discord.js": "^11.5.1"
+    "discord.js": "^11.5.1",
+    "reflect-metadata": "^0.1.13",
+    "sqlite3": "^4.1.0",
+    "typeorm": "^0.2.20"
   }
 }
