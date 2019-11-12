@@ -71,3 +71,9 @@ coverage/
 
 #config directory
 config/
+
+# Orm config
+ormconfig.json
+
+# Sqlite
+*.sqlite
