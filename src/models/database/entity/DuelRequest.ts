@@ -1,4 +1,4 @@
-import {Entity, Column, ManyToMany, BaseEntity, PrimaryGeneratedColumn} from "typeorm"
+import {Entity, Column, ManyToMany, BaseEntity, PrimaryGeneratedColumn, ManyToOne, JoinTable} from "typeorm"
 import User from "./User"
 
 @Entity()
@@ -7,15 +7,17 @@ export default class DuelRequest extends BaseEntity {
     @PrimaryGeneratedColumn()
     requestId: number | undefined
 
-    @Column()
-    discordName: string
+    @ManyToOne(type => User)
+    @JoinTable()
+    requestingUser: User
 
-    @ManyToMany(type => Duel, duel => duel.participants)
-    participatingDuels: Duel[] | undefined
+    @ManyToOne(type => User)
+    @JoinTable()
+    receivingUser: User
 
-    constructor(discordId: string, discordName: string) {
+    constructor(requestingUser: User, receivingUser: User) {
         super()
-        this.discordId = discordId
-        this.discordName = discordName
+        this.requestingUser = requestingUser
+        this.receivingUser = receivingUser
     }
 }
