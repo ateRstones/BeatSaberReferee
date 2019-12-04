@@ -5,6 +5,7 @@ import sleep from './utils/sleep'
 import settings from './settings/Settings'
 import ModuleManager from './bot-modules/ModuleManager'
 import Database from "./models/database/Database"
+import LocalizedMessage from "./utils/LocalizedMessage"
 
 export const client = new Client()
 const moduleManager = ModuleManager.getInstance()
@@ -31,8 +32,9 @@ async function reconnect() {
 
 async function init() {
     try {
-        await database.init()
         logger.setLogLevel(c.get<string>("loglevel"))
+        await database.init()
+        LocalizedMessage.initialize()
         await login()
         moduleManager.setupModules(settings.modules)
     }
