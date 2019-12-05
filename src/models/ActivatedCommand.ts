@@ -34,4 +34,8 @@ export default class ActivatedCommand {
         return this._message
     }
 
+    async replyToChannel(msg: string) {
+        await this.message.channel.send(msg);
+    }
+
 }

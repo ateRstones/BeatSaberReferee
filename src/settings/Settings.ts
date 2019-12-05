@@ -2,6 +2,7 @@ import c from 'config'
 import Command from '../bot-commands/Command'
 import Module from '../bot-modules/modules/Module'
 import CommandManagerModule from '../bot-modules/modules/CommandManagerModule'
+import ColorChangeCommand from '../bot-commands/ColorChangeCommand'
 
 class BeatsaberRefereeBotSettings {
 
@@ -10,7 +11,7 @@ class BeatsaberRefereeBotSettings {
     ]
 
     public readonly commands: Command[] = [
-        // No commands to date
+        new ColorChangeCommand(c.get<string[]>("discord.colorRoles"))
     ]
 
     public readonly prefix = c.get<string>('discord.prefix')

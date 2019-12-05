@@ -1,18 +1,38 @@
 {
-    "heeey": {
-        "de": "Naa du %name% %stuff% %name%",
-        "en": "Hey you"
-    },
-    "hey": {
-        "na": {
-            "du": {
-                "en": "Jaa guut"
+    "commands": {
+        "color": {
+            "error": {
+                "noargs": {
+                    "de": "Bitte eine Farbe angeben. Benutze \"list\" für eine Liste der Farben.",
+                    "en": "Please give a argument. Use \"list\" for a list of colors."
+                },
+                "invalidrole": {
+                    "de": "Leider wird die Farbe \"%role%\" nicht unterstützt. Benutze \"list\" für eine Liste der Farben.",
+                    "en": "The color \"%role%\" is not supported. Use \"list\" for a list of colors."
+                },
+                "rolenotfound": {
+                    "de": "Leider wird die Farbe \"%role%\" vom Server nicht unterstützt.",
+                    "en": "The color \"%role%\" is not supported by the server."
+                }
+            },
+            "msg": {
+                "listcolors": {
+                    "de": "Die Liste aller Farben: %colors%",
+                    "en": "The list of all colors: %colors%"
+                },
+                "success": {
+                    "de": "Dir wurde die Farbe %color% gegeben.",
+                    "en": "You got the color %color%."
+                },
+                "alreadyhas": {
+                    "de": "Du hast die Farbe %color% bereits.",
+                    "en": "You already have the color %color%."
+                },
+                "removed": {
+                    "de": "Dir wurde die Farbe entfernt.",
+                    "en": "Your color got removed."
+                }
             }
-        }
-    },
-    "kek": {
-        "doppel": {
-            "nl": "fuke youe"
         }
     }
 }

@@ -4,7 +4,7 @@ import Logger from "./logging"
 
 export default class LocalizedMessage {
     private static instance: LocalizedMessage
-    private static defaultLang: string = "en"
+    private static readonly defaultLang: string = "en"
 
     public static initialize() {
         this.getInstance()
@@ -16,6 +16,14 @@ export default class LocalizedMessage {
         }
 
         return this.instance
+    }
+
+    public static getParsed(key: string, replace: any): string {
+        return this.getInstance().getLocalizedParsed(key, replace);
+    }
+
+    public static getLocalized(key: string): string {
+        return this.getInstance().getLocalizedString(key);
     }
 
     private baseJson: any
