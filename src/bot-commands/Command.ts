@@ -5,6 +5,6 @@ export default abstract class Command {
 
     public abstract readonly name: string
     public abstract readonly description: string
-    public abstract execute(activatedCommand: ActivatedCommand): void
+    public async abstract execute(activatedCommand: ActivatedCommand): Promise<void>
 
 }

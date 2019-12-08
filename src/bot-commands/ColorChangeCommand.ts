@@ -17,7 +17,7 @@ export default class ColorChangeCommand extends Command {
 
     public name: string = "color"
     public description: string = "Command for changing the user color. Use argument \"list\" for color list."
-    public execute(activatedCommand: ActivatedCommand): void {
+    public async execute(activatedCommand: ActivatedCommand): Promise<void> {
 
         if(activatedCommand.args.length > 0) {
             let input = activatedCommand.args.join(" ")

@@ -77,3 +77,6 @@ ormconfig.json
 
 # Sqlite
 *.sqlite
+
+# VSCode
+.vscode/

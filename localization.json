@@ -33,6 +33,40 @@
                     "en": "Your color got removed."
                 }
             }
+        },
+        "request": {
+            "error": {
+                "noargs": {
+                    "de": "Bitte einen User taggen oder einen Usernamen angeben.",
+                    "en": "Please tag a user or give a username."
+                },
+                "unknownplayer": {
+                    "de": "Konnte den Spieler \"%player%\" nicht finden.",
+                    "en": "Could not find the player \"%player%\"."
+                },
+                "selfrequest": {
+                    "de": "Du kannst dich nicht selbst herausfordern!",
+                    "en": "You cannot request yourself!"
+                }
+            },
+            "msg": {
+                "alreadyrequested": {
+                    "de": "Du hast den Spieler %player% bereits angefragt!",
+                    "en": "You already requested the player %player%!"
+                },
+                "alreadygotrequested": {
+                    "de": "Der Spieler %player% hat dich bereits angefragt.",
+                    "en": "The player %player% has already requested you."
+                },
+                "alreadyhasduel": {
+                    "de": "Du hast bereits ein Duel mit dem Spieler %player%.",
+                    "en": "You already have a duel with the player %player%."
+                },
+                "success": {
+                    "de": "Du hast den Spieler %player% zu einem Duel herausgefordert.",
+                    "en": "You have challenged the player %player% to a duel."
+                }
+            }
         }
     }
 }

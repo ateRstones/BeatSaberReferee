@@ -1,5 +1,5 @@
-import {Entity, Column, ManyToMany, PrimaryColumn, BaseEntity, OneToMany} from "typeorm"
-import Duel from "./Duel"
+import {Entity, Column, ManyToMany, PrimaryColumn, BaseEntity, OneToMany, In, Like} from "typeorm"
+import Duel, { DuelState } from "./Duel"
 import DuelRequest from "./DuelRequest"
 
 @Entity()
@@ -24,5 +24,36 @@ export default class User extends BaseEntity {
         super()
         this.discordId = discordId
         this.discordName = discordName
+    }
+
+    public async gotRequestedBy(user: User): Promise<boolean> {
+        let requ = await DuelRequest.findOne({"requestingUser": user, "receivingUser": this})
+        return requ !== undefined
+    }
+
+    public async hasRequested(user: User): Promise<boolean> {
+        let requ = await DuelRequest.findOne({"requestingUser": this, "receivingUser": user})
+        return requ !== undefined
+    }
+
+    public async hasDuelWith(user: User): Promise<boolean> {
+        let extendedUser = await User.findOne(this, {relations: ["participatingDuels", "participatingDuels.participants"]})
+        
+        if(extendedUser !== undefined) {
+            for(let x in <Duel[]>extendedUser.participatingDuels) {
+                let duel = (<Duel[]>extendedUser.participatingDuels)[x]
+                if((duel.state === DuelState.Created || duel.state == DuelState.Running)
+                        && duel.participants !== undefined) {
+                    for(let u in (<User[]>duel.participants)) {
+                        let userDuel = (<User[]>duel.participants)[u]
+                        if(userDuel.discordId === user.discordId) {
+                            return true
+                        }
+                    }
+                }
+            }
+        }
+
+        return false //duel !== undefined
     }
 }
