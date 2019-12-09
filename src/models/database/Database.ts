@@ -28,8 +28,14 @@ export default class Database {
         //await userRepo.save(testUser2)
     }
 
-    public async getOrCreateUpdatedUser(discordId: string, discordName: string): Promise<User> {
-        let found = await User.findOne(discordId)
+    public async getOrCreateUpdatedUser(discordId: string, discordName: string, loadRequests: boolean = false): Promise<User> {
+        let x = {}
+        
+        if(loadRequests) {
+            x = {relations: ["requestedDuels", "receivedDuels", "requestedDuels.receivingUser", "receivedDuels.requestingUser"]}
+        }
+
+        let found = await User.findOne(discordId, x)
         if(found === undefined) {
             found = new User(discordId, discordName);
             User.save(found)

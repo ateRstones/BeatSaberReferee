@@ -101,6 +101,34 @@
                     "en": "You have accepted %player%'s duel."
                 }
             }
+        },
+        "requestlist": {
+            "msg": {
+                "norequests": {
+                    "de": "**Du wurdest zu keinem Duel herausgefordert!**",
+                    "en": "**Noone challenged you to a duel.**"
+                },
+                "requestedheader": {
+                    "de": "**Es wurden Herausforderungen an dich gestellt. Nehme sie mit !accept <user> an:**",
+                    "en": "**You were challenged to duels. Accept them with !accept <user>:**"
+                },
+                "requestedduel": {
+                    "de": "  (**%count%**): **%player%** fordert dich zu einem Duel heraus.",
+                    "en": "  (**%count%**): **%player%** challenged you to a duel."
+                },
+                "norequesting": {
+                    "de": "**Du hast zu keinem Duel herausgefordert!**",
+                    "en": "**You challenged noone to a duel.**"
+                },
+                "requestingheader": {
+                    "de": "**Du hast Herausforderungen an andere gestellt:**",
+                    "en": "**You challenged others to duels:**"
+                },
+                "requestingduel": {
+                    "de": "  (**%count%**): Du forderst **%player%** zu einem Duel heraus.",
+                    "en": "  (**%count%**): You challenged **%player%** to a duel."
+                }
+            }
         }
     }
 }
