@@ -49,7 +49,7 @@ export default class LocalizedMessage {
             currentObject = currentObject[splitKey[x]]
             if(currentObject === undefined) {
                 this.logger.debug(`Missing value for localization key ${key}`)
-                return `THIS SHOULD NOT BE SHOW: MISSING LOCALIZATION KEY ${key}`
+                return `THIS SHOULD NOT BE SHOWN: MISSING LOCALIZATION KEY ${key}`
             }
         }
         let output = currentObject[this.language]

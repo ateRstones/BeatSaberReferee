@@ -129,6 +129,32 @@
                     "en": "  (**%count%**): You challenged **%player%** to a duel."
                 }
             }
+        },
+        "decline": {
+            "msg": {
+                "norequest": {
+                    "de": "Der Spieler %player% hat dich nicht angefragt.",
+                    "en": "The player %player% hasn't requested you."
+                },
+                "success": {
+                    "de": "Du hast die Anfrage von %player% abgelehnt.",
+                    "en": "You decline the request from %player%."
+                }
+            },
+            "error": {
+                "noargs": {
+                    "de": "Bitte einen User taggen oder einen Usernamen angeben.",
+                    "en": "Please tag a user or give a username."
+                },
+                "unknownplayer": {
+                    "de": "Konnte den Spieler \"%player%\" nicht finden.",
+                    "en": "Could not find the player \"%player%\"."
+                },
+                "selfduel": {
+                    "de": "Du kannst dich nicht selbst ablehnen.",
+                    "en": "You cannot decline yourself."
+                }
+            }
         }
     }
 }
