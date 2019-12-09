@@ -155,6 +155,66 @@
                     "en": "You cannot decline yourself."
                 }
             }
+        },
+        "start": {
+            "error": {
+                "noargs": {
+                    "de": "Bitte zwei User taggen.",
+                    "en": "Please tag two users."
+                },
+                "unknownplayer": {
+                    "de": "Konnte den Spieler \"%player%\" nicht finden.",
+                    "en": "Could not find the player \"%player%\"."
+                },
+                "invalidinput": {
+                    "de": "Die Eingabe \"%input%\" ist nicht valide.",
+                    "en": "The input \"%input%\" is invalid."
+                },
+                "nopermission": {
+                    "de": "Du hast nicht die Rechte diesen Command zu verwenden!",
+                    "en": "You don't have the permissions to use this command!"
+                }
+            },
+            "msg": {
+                "noduel": {
+                    "de": "Die Spieler **%player1%** und **%player2%** haben kein startbares Duel.",
+                    "en": "The players **%player1%** and **%player2%** don't have a startable duel."
+                },
+                "startedduel": {
+                    "de": "Das Duel zwischen **%player1%** und **%player2%** wurde gestartet!",
+                    "en": "The duel between **%player1%** and **%player2%** has been started!"
+                }
+            }
+        },
+        "delete": {
+            "error": {
+                "noargs": {
+                    "de": "Bitte zwei User taggen.",
+                    "en": "Please tag two users."
+                },
+                "unknownplayer": {
+                    "de": "Konnte den Spieler \"%player%\" nicht finden.",
+                    "en": "Could not find the player \"%player%\"."
+                },
+                "invalidinput": {
+                    "de": "Die Eingabe \"%input%\" ist nicht valide.",
+                    "en": "The input \"%input%\" is invalid."
+                },
+                "nopermission": {
+                    "de": "Du hast nicht die Rechte diesen Command zu verwenden!",
+                    "en": "You don't have the permissions to use this command!"
+                }
+            },
+            "msg": {
+                "noduel": {
+                    "de": "Die Spieler **%player1%** und **%player2%** haben kein löschbares Duel.",
+                    "en": "The players **%player1%** and **%player2%** don't have a deletable duel."
+                },
+                "startedduel": {
+                    "de": "Das Duel zwischen **%player1%** und **%player2%** wurde gelöscht!",
+                    "en": "The duel between **%player1%** and **%player2%** has been deleted!"
+                }
+            }
         }
     }
 }

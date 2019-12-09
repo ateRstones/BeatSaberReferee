@@ -9,7 +9,7 @@ import Duel from "../models/database/entity/Duel"
 
 let logger = Logger.getLogger("beatsaber")
 
-export default class RequestCommand extends Command {
+export default class RequestAcceptCommand extends Command {
 
     public name: string = "accept"
     public description: string = "Command for accepting duels."

@@ -36,24 +36,27 @@ export default class User extends BaseEntity {
         return requ !== undefined
     }
 
-    public async hasDuelWith(user: User): Promise<boolean> {
+    public async getDuelWith(user: User, stateList: DuelState[] = []): Promise<Duel | undefined> {
         let extendedUser = await User.findOne(this, {relations: ["participatingDuels", "participatingDuels.participants"]})
         
         if(extendedUser !== undefined) {
             for(let x in <Duel[]>extendedUser.participatingDuels) {
                 let duel = (<Duel[]>extendedUser.participatingDuels)[x]
-                if((duel.state === DuelState.Created || duel.state == DuelState.Running)
-                        && duel.participants !== undefined) {
+                if(stateList.includes(duel.state) && duel.participants !== undefined) {
                     for(let u in (<User[]>duel.participants)) {
                         let userDuel = (<User[]>duel.participants)[u]
                         if(userDuel.discordId === user.discordId) {
-                            return true
+                            return duel
                         }
                     }
                 }
             }
         }
 
-        return false //duel !== undefined
+        return undefined
+    }
+
+    public async hasDuelWith(user: User): Promise<boolean> {
+        return await this.getDuelWith(user, [DuelState.Created, DuelState.Running]) !== undefined
     }
 }

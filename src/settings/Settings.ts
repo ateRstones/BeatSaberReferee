@@ -7,6 +7,8 @@ import RequestCommand from '../bot-commands/RequestCommand'
 import RequestAcceptCommand from '../bot-commands/RequestAcceptCommand'
 import RequestListCommand from '../bot-commands/RequestListCommand'
 import RequestDeclineCommand from '../bot-commands/RequestDeclineCommand'
+import StartCommand from '../bot-commands/StartCommand'
+import DeleteCommand from '../bot-commands/DeleteCommand'
 
 class BeatsaberRefereeBotSettings {
 
@@ -19,7 +21,9 @@ class BeatsaberRefereeBotSettings {
         new RequestCommand(),
         new RequestAcceptCommand(),
         new RequestListCommand(),
-        new RequestDeclineCommand()
+        new RequestDeclineCommand(),
+        new StartCommand(c.get<string[]>("discord.authorizedUsers")),
+        new DeleteCommand(c.get<string[]>("discord.authorizedUsers"))
     ]
 
     public readonly prefix = c.get<string>('discord.prefix')

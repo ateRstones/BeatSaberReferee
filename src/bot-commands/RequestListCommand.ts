@@ -8,7 +8,7 @@ import DuelRequest from "../models/database/entity/DuelRequest"
 
 let logger = Logger.getLogger("beatsaber")
 
-export default class RequestCommand extends Command {
+export default class RequestListCommand extends Command {
 
     public name: string = "requestlist"
     public description: string = "Command for listing duel requests."
