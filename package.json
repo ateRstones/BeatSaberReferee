@@ -32,6 +32,6 @@
     "discord.js": "^11.5.1",
     "reflect-metadata": "^0.1.13",
     "sqlite3": "^4.1.0",
-    "typeorm": "^0.2.20"
+    "typeorm": "^0.2.25"
   }
 }
